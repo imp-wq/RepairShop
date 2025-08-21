@@ -1,0 +1,6 @@
+- Neon: 
+	- a free account - 10 different databases
+- Drizzle Kit:
+	- generate SQL
+	- migrate to Neon database
+- 

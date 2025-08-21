@@ -1,0 +1,187 @@
+{
+  "main": {
+    "id": "7433e6979fa64b2c",
+    "type": "split",
+    "children": [
+      {
+        "id": "56fe1fce11d82d8a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a67788556e758cbc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Resources.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "00-Resources"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8d41235e143c1406",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9e4bc5d05e49874",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4aeef4ca799dcbc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9e1e842fa176f483",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a0e5795e063a8e8b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 211.5
+  },
+  "right": {
+    "id": "065493a5b96af16c",
+    "type": "split",
+    "children": [
+      {
+        "id": "8beda55d3d262e34",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "64dcfb86650b74b2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "04-Lexical Specification.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 04-Lexical Specification"
+            }
+          },
+          {
+            "id": "7af4fc6d5713daf3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01-.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 01-"
+            }
+          },
+          {
+            "id": "d045431d9cd1a4f5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "95ba5dd469ebfdf7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "00-Resources.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 00-Resources"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 314.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "a67788556e758cbc",
+  "lastOpenFiles": [
+    "00-Resources.md",
+    "Untitled",
+    "noteimages/Pasted image 20250718163000.png",
+    "00-Resources.md",
+    "04-Lexical Specification.md",
+    "02-Cool Overview.md",
+    "noteimages/Pasted image 20250630194959.png",
+    "03-Lexical Analysis.md",
+    "01-Introduction.md",
+    "noteimages/Pasted image 20250702205929.png",
+    "noteimages",
+    "New folder"
+  ]
+}
