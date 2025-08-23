@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Resources.md",
+                "file": "01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00-Resources"
+              "title": "01"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "04-Lexical Specification.md",
+                "file": "01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 04-Lexical Specification"
+              "title": "Backlinks for 01"
             }
           },
           {
@@ -137,18 +137,18 @@
             }
           },
           {
-            "id": "95ba5dd469ebfdf7",
+            "id": "05c9021cb45c36e2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "00-Resources.md",
+                "file": "01.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 00-Resources"
+              "title": "Outline of 01"
             }
           }
         ],
@@ -172,9 +172,10 @@
   "active": "a67788556e758cbc",
   "lastOpenFiles": [
     "00-Resources.md",
+    "01.md",
+    "Untitled.base",
     "Untitled",
     "noteimages/Pasted image 20250718163000.png",
-    "00-Resources.md",
     "04-Lexical Specification.md",
     "02-Cool Overview.md",
     "noteimages/Pasted image 20250630194959.png",

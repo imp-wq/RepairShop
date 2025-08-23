@@ -3,4 +3,6 @@
 - Drizzle Kit:
 	- generate SQL
 	- migrate to Neon database
-- 
+- Shadcn: the component library
+
+- Course Recources: https://github.com/gitdagray/nextjs-full-stack-project
