@@ -1,5 +1,25 @@
 ### Connect to Neon
 - environment variables
+- create `db` folder:
+	- `/db`
+		- `index.ts`: connect to database, create db instance, config env file.
+		```ts
+		import { neon } from '@neondatabase/serverless';
+		import { config } from 'dotenv';
+		import { drizzle } from 'drizzle-orm/neon-http';
+		
+		config({ path: '.env.local' })
+		const sql = neon(process.env.DATABASE_URL!);
+		
+		// logger
+		// const db = drizzle(sql, { logger: true })
+		const db = drizzle({ client: sql });
+		
+		export { db }		
+		```
+		- `schema.ts`
+
+				
 ### Create Schemas
 [Schemas in Drizzle](https://orm.drizzle.team/docs/sql-schema-declaration#shape-your-data-schema)
 - `$onupdate` method
