@@ -7,7 +7,7 @@ export const insertCustomerSchema = createInsertSchema(customers, {
   lastName: (schema) => schema.min(1, "Last name is required"),
   address1: (schema) => schema.min(1, "Address is required"),
   city: (schema) => schema.min(1, "City is required"),
-  state: (schema) => schema.length(2, "State must be exactly 2 characters"),
+  state: (schema) => schema.min(2, "State must be 2 or 3 characters").max(3, "State must be 2 or 3 characters"),
   email: (schema) => z.email("Invalid email address"),
   zip: (schema) => schema.regex(/^\d{5}(-\d{4})?$/, "Invalid Zip code. Use 5 digits or 5 digits followed by a hyphen and 4 digits"),
   phone: (schema) => schema.regex(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number format. Use XXX-XXX-XXXX"),
@@ -15,6 +15,6 @@ export const insertCustomerSchema = createInsertSchema(customers, {
 
 export const selectCustomerSchema = createSelectSchema(customers)
 
-export type insertCustomerSchemaType = typeof insertCustomerSchema.type
+export type insertCustomerSchemaType = z.infer<typeof insertCustomerSchema>
 
-export type selectCustomerSchemaType = typeof selectCustomerSchema.type 
+export type selectCustomerSchemaType = z.infer<typeof selectCustomerSchema>

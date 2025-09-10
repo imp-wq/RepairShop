@@ -61,7 +61,13 @@ export const ticketsRelations = relations(tickets, ({ one }) => ({
   })
 }))
 ```
-
+### Infer Schema Type
+```ts
+export type insertCustomerSchemaType = z.infer<typeof insertCustomerSchema>
+export type selectCustomerSchemaType = z.infer<typeof selectCustomerSchema>
+```
+- [inferring-types](https://zod.dev/basics#inferring-types)
+- 
 ### Migrations
 - Define `drizzle.config.ts` file and apply migrations
 	[Migrations](https://orm.drizzle.team/docs/drizzle-config-file)

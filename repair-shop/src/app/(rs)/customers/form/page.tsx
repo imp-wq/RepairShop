@@ -1,6 +1,6 @@
 import { getCustomer } from "@/lib/queries/getCustomer"
 import { BackButton } from "@/components/BackButton"
-import { customers } from "@/db/schema"
+import CustomerForm from "./CustomerForm"
 
 export default async function CustomerFormPage({
   searchParams,
@@ -24,11 +24,11 @@ export default async function CustomerFormPage({
 
 
       // put customer form component
-
+      return <CustomerForm customer={customer} />
     }
     else {
       // new customer form component
-
+      return <CustomerForm />
     }
 
   } catch (e) {
