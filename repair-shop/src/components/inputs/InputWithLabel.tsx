@@ -36,7 +36,7 @@ export function InputWithLabel<S>({
               <Input
                 id={nameInSchema}
                 // put other class names at the end of the list, that will let us overwrite any of these classes
-                className={`w-full max-w-xs disabled:text-blue-500 dark:disabled:text-green-500 disabled:opacity-75 ${className}`}
+                className={`w-full max-w-xs disabled:text-blue-500 dark:disabled:text-yellow-300 disabled:opacity-75 ${className}`}
                 {...props}
                 {...field}
               />

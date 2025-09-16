@@ -3,15 +3,42 @@ import { BackButton } from "@/components/BackButton"
 import { getTicket } from "@/lib/queries/getTicket"
 import Sentry from "@sentry/nextjs"
 import TicketForm from "./TicketForm"
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
+import { Users, init as kindeInit } from "@kinde/management-api-js"
+import { get } from "http"
+import { desc } from "drizzle-orm"
 
-export default async function CustomerFormPage({
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}) {
+  const { customerId, ticketId } = await searchParams
+
+  if (!customerId && !ticketId) return {
+    title: 'Missing Ticket or Customer ID'
+  }
+
+  if (customerId) {
+    return {
+      title: `New Ticket for Customer #${customerId}`
+    }
+  }
+
+  if (ticketId) {
+    return {
+      title: `Edit Ticket #${ticketId}`
+    }
+  }
+}
+
+export default async function TicketFormPage({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>
 }) {
   try {
     const { customerId, ticketId } = await searchParams
-    console.log('test')
     if (!customerId && !ticketId) {
       return (
         <>
@@ -19,6 +46,17 @@ export default async function CustomerFormPage({
           <BackButton title="Go Back" variant="default" />
         </>)
     }
+
+    const { getPermission, getUser } = getKindeServerSession()
+    const [managementPermission, user] = await Promise.all([
+      getPermission("manager"),
+      getUser()
+    ])
+
+    const isManager = managementPermission?.isGranted
+
+
+
     if (customerId) {
       const customer = await getCustomer(parseInt(customerId))
       if (!customer) {
@@ -38,9 +76,16 @@ export default async function CustomerFormPage({
           <BackButton title="Go Back" variant="default" />
         </>)
       }
+
       // return ticket form
-      console.log(customer)
-      return <TicketForm customer={customer} />
+      if (isManager) {
+        kindeInit() // Initialize the Kinde Management API client
+        const { users } = await Users.getUsers()
+        const techs = users ? users.map(user => ({ id: user.email!, description: user.email! })) : []
+        return <TicketForm customer={customer} techs={techs} />
+      } else {
+        return <TicketForm customer={customer} />
+      }
     }
     // Edit ticket form
     if (ticketId) {
@@ -55,10 +100,21 @@ export default async function CustomerFormPage({
 
       const customer = await getCustomer(ticket.customerId)
       // return ticket form
-      console.log('ticket:', ticket)
-      console.log('customer:', customer)
 
-      return <TicketForm customer={customer} ticket={ticket} />
+      if (isManager) {
+        kindeInit() // Initialize the Kinde Management API client
+        const { users } = await Users.getUsers()
+        const techs = users ? users.map(user => ({ id: user.email!, description: user.email! })) : []
+        return <TicketForm customer={customer} ticket={ticket} techs={techs} />
+      } else {
+        const isEditable = user?.email?.toLowerCase() === ticket.tech.toLowerCase()
+
+        console.log('ue:', user?.email)
+        console.log('tech: ', ticket.tech)
+
+
+        return <TicketForm customer={customer} ticket={ticket} isEditable={isEditable} />
+      }
     }
   } catch (e) {
     if (e instanceof Error) {

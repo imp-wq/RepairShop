@@ -35,7 +35,7 @@ export function TextAreaWithLabel<S>({ fieldTitle, nameInSchema, className, ...p
             <Textarea
               id={nameInSchema}
               // put other class names at the end of the list, that will let us overwrite any of these classes
-              className={className}
+              className={`disabled:text-blue-500 dark:disabled:text-yellow-300 disabled:opacity-75 ${className}`}
               {...props}
               // onchange and onblur
               {...field}
