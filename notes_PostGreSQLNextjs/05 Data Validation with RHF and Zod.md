@@ -77,3 +77,6 @@ nameInSchema: keyof S & string,
 className?: string,
 } & InputHTMLAttributes<HTMLInputElement>
 ```
+## Schemas for Data Validation
+- `src\db\schema.ts`: schemas for database, validation in the backend
+- `src\zod-schemas`: schemas for Zod, validation in the front-end(RHF)

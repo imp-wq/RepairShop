@@ -24,7 +24,6 @@ export function TextAreaWithLabel<S>({ fieldTitle, nameInSchema, className, ...p
     control={form.control}
     name={nameInSchema}
     render={({ field }) => {
-      console.log(field)
       return (
         <FormItem>
           <FormLabel

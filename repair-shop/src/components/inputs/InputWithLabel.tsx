@@ -25,7 +25,6 @@ export function InputWithLabel<S>({
       control={form.control}
       name={nameInSchema}
       render={({ field }) => {
-        console.log(field)
         return (
           <FormItem>
             <FormLabel

@@ -34,7 +34,6 @@ export function SelectWithLabel<S>({
       control={form.control}
       name={nameInSchema}
       render={({ field }) => {
-        console.log(field)
         return (
           <FormItem>
             <FormLabel

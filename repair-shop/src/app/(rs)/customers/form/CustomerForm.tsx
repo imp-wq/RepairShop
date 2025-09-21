@@ -13,10 +13,14 @@ import { SelectWithLabel } from "@/components/inputs/SelectWithLabel"
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
 
 import { StatesArray } from "@/constants/StatesArray"
-import { use } from "react"
-import { is } from "drizzle-orm"
 import { Checkbox } from "@radix-ui/react-checkbox"
 import { CheckboxWithLabel } from "@/components/inputs/CheckboxWithLabel"
+
+import { useAction } from 'next-safe-action/hooks'
+import { saveCustomerAction } from "@/app/actions/saveCustomerAction"
+import { toast } from "sonner"
+import { LoaderCircle } from "lucide-react";
+import { DisplayServerActionResponse } from "@/components/DisplayServerActionResponse"
 
 type Props = {
   customer?: selectCustomerSchemaType
@@ -34,6 +38,7 @@ export default function CustomerForm({ customer }: Props) {
     firstName: customer?.firstName ?? '',
     lastName: customer?.lastName ?? '',
     address1: customer?.address1 ?? '',
+    address2: customer?.address2 ?? '',
     city: customer?.city ?? '',
     state: customer?.state ?? '',
     email: customer?.email ?? '',
@@ -49,12 +54,34 @@ export default function CustomerForm({ customer }: Props) {
     defaultValues
   })
 
+  const {
+    execute: executeSave,
+    result: saveResult,
+    isExecuting: isSaving,
+    reset: resetSaveAction
+  } = useAction(saveCustomerAction, {
+    onSuccess({ data }) {
+      toast.success('Success! ', {
+        description: data?.message
+      })
+    },
+    onError({ error }) {
+      toast.error('Error', {
+        description: 'Save Failed'
+      })
+    }
+  })
+
   async function submitForm(data: insertCustomerSchemaType) {
     console.log(data)
+    executeSave(data)
   }
+
+
 
   return (
     <div className="flex flex-col gap-1 sm:px-8">
+      <DisplayServerActionResponse result={saveResult} />
       <div>
         <h2 className="text-2xl font-bold">
           {customer?.id ? 'Edit' : 'New'} Customer {customer?.id ? `#${customer.id}` : 'Form'}
@@ -137,15 +164,20 @@ export default function CustomerForm({ customer }: Props) {
                 className="w-3/4"
                 variant="default"
                 title="Save"
-              >Save</Button>
+                disabled={isSaving}
+              >{
+                  isSaving ? (<>
+                    <LoaderCircle className="animate-spin" />
+                  </>) : 'Save'
+                }</Button>
 
               <Button
                 type="button"
                 variant="destructive"
                 title="Reset"
                 onClick={() => {
-
                   form.reset(defaultValues)
+                  resetSaveAction()
                 }}
               >Reset</Button>
 

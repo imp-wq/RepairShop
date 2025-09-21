@@ -73,6 +73,10 @@ export type selectCustomerSchemaType = z.infer<typeof selectCustomerSchema>
 	[Migrations](https://orm.drizzle.team/docs/drizzle-config-file)
 	- In generated `Meta` directory, it tracks the changes, so in next time migration, it knows what has happened in the past.
 	- 
+- If any changes have been made in schema files, we should run a migration so Postgres gets the new structure.
+	[Drizzle ORM - Migrations](https://orm.drizzle.team/docs/migrations)
+
+
 
 
 
