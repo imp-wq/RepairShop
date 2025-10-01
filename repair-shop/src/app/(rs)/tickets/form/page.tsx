@@ -5,8 +5,6 @@ import Sentry from "@sentry/nextjs"
 import TicketForm from "./TicketForm"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { Users, init as kindeInit } from "@kinde/management-api-js"
-import { get } from "http"
-import { desc } from "drizzle-orm"
 
 export async function generateMetadata({
   searchParams,

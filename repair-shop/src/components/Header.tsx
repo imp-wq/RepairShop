@@ -3,7 +3,8 @@ import { NavButton } from "@/components/NavButton";
 import { File, HomeIcon, LogOut, UserRound } from "lucide-react";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components"
+import { NavButtonMenu } from "./NavButtonMenu";
 
 export function Header() {
   return (
@@ -36,10 +37,19 @@ export function Header() {
             label="Tickets"
             icon={File}
           />
-          <NavButton
+          {/* <NavButton
             href="/customers"
             label="Customers"
             icon={UserRound}
+          /> */}
+
+          <NavButtonMenu
+            icon={UserRound}
+            label="Customers Menu"
+            choices={[
+              { title: 'Search Customers', href: '/customers' },
+              { title: 'New Customer', href: '/customers/form' }
+            ]}
           />
           <ModeToggle />
 
