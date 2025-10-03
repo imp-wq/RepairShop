@@ -1,8 +1,7 @@
-import { db } from '@/db'
-import { customers } from '@/db/schema'
-import { ilike, or, sql } from "drizzle-orm"
-
-export async function getCustomerSearchResults(searchText: string) {
+- Headless Table in react-table https://tanstack.com/table/latest/docs/api/core/header
+- Match both first name and last name:
+	```ts
+	export async function getCustomerSearchResults(searchText: string) {
   const results = await db.select()
     .from(customers)
     .where(or(
@@ -22,4 +21,4 @@ export async function getCustomerSearchResults(searchText: string) {
     ))
   return results;
 }
-
+	```
